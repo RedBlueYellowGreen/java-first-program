@@ -8,7 +8,7 @@ public class MortgageCalculator {
     private long loanAmount;
     private int termInYears;
     private float annualRate;
-    private double montlyPayment;
+    private double monthlyPayment;
 
     public MortgageCalculator(float[] credits, float[] debits) {
         this.loanAmount = loanAmount;
