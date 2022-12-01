@@ -30,7 +30,7 @@ public class Finance {
         return false;
     }
 
-    private static void executeCommand(String command, String[] arguments){
+    private static void executeCommand(String command, String[] arguments) {
         switch (command) {
             case BEST_LOAN_RATES:
                 System.out.println("Finding best loan rates ...");
@@ -47,19 +47,19 @@ public class Finance {
         }
     }
 
-    public static void main(String[] args){
-        String command = args [0];
+    public static void main(String[] args) {
+        String command = args[0];
         if(!commandsToUsage.containsKey(command)) {
-            System.out.println(command + "command not found");
+            System.out.println(command + ": command not found");
             return;
         }
 
         boolean isValidCommand = validateCommandArguments(args);
-        if (!isValidCommand){
-            System.out.print(commandsToUsage.get(args[0]));
-            return;}
+        if(!isValidCommand) {
+            System.out.println(commandsToUsage.get(args[0]));
+            return;
+        }
 
         executeCommand(command, Arrays.copyOfRange(args, 1, args.length));
-
     }
 }
