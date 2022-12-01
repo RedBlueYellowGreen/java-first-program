@@ -14,17 +14,16 @@ public class MortgageCalculator {
         this.annualRate = annualRate;
     }
 
-    private int getNumberOfPayments(){
-        return 12 * termInYears;
+    private int getNumberOfPayments() {
+        return termInYears * 12;
     }
 
-    private float getMonthlyInterestRate(){
+    private float getMonthlyInterestRate() {
         float interestRate = annualRate / 100;
         return interestRate / 12;
     }
 
     public void calculateMonthlyPayment() {
-
         long P = loanAmount;
         float r = getMonthlyInterestRate();
         int n = getNumberOfPayments();
@@ -33,28 +32,19 @@ public class MortgageCalculator {
         this.monthlyPayment = M;
     }
 
-    public String toString(){
+    public String toString() {
         DecimalFormat df = new DecimalFormat("####0.00");
         return "monthlyPayment: " + df.format(monthlyPayment);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         long loanAmount = Utilities.getLongValue(args[0]);
         int termInYears = Utilities.getIntValue(args[1]);
         float annualRate = Utilities.getFloatValue(args[2]);
 
         MortgageCalculator calculator = new MortgageCalculator(loanAmount, termInYears, annualRate);
-
         calculator.calculateMonthlyPayment();
         System.out.println(calculator.toString());
     }
 
-
-
 }
-
-
-
-
-
-
