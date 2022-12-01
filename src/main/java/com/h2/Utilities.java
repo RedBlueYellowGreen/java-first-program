@@ -23,6 +23,7 @@ public class Utilities {
     }
 
     public static float getFloatValue(String in) {
+
         float out = Float.MIN_VALUE;
         try {
             out = Float.parseFloat(in);
